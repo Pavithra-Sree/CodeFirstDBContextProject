@@ -21,14 +21,21 @@ namespace CodeFirstDBContextProject.Controllers
             _context = context;
         }
 
-        // GET: api/Authors
+        /// <summary>
+        /// Retrieves all authors
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
         {
             return await _context.Authors.ToListAsync();
         }
 
-        // GET: api/Authors/5
+        /// <summary>
+        /// Retrieve specific author by Id
+        /// </summary>
+        /// <param name="id">An Id to retrieve author</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Author>> GetAuthor(int id)
         {
@@ -42,8 +49,12 @@ namespace CodeFirstDBContextProject.Controllers
             return author;
         }
 
-        // PUT: api/Authors/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Updates particular Author detail by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="author"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAuthor(int id, Author author)
         {
@@ -73,8 +84,11 @@ namespace CodeFirstDBContextProject.Controllers
             return NoContent();
         }
 
-        // POST: api/Authors
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Creates new author 
+        /// </summary>
+        /// <param name="author"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Author>> PostAuthor(Author author)
         {
@@ -84,7 +98,11 @@ namespace CodeFirstDBContextProject.Controllers
             return CreatedAtAction("GetAuthor", new { id = author.Id }, author);
         }
 
-        // DELETE: api/Authors/5
+        /// <summary>
+        /// Deletes author by particular Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuthor(int id)
         {

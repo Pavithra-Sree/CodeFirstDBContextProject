@@ -54,14 +54,14 @@ namespace CodeFirstDBContextProject
                 .HasMaxLength(100);
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("appsettings.json")
-                .Build();
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    IConfigurationRoot configuration = new ConfigurationBuilder()
+        //        .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+        //        .AddJsonFile("appsettings.json")
+        //        .Build();
 
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("LibraryConnection"));
-        }
+        //    optionsBuilder.UseSqlServer(configuration.GetConnectionString("LibraryConnection"));
+        //}
     }
 }
